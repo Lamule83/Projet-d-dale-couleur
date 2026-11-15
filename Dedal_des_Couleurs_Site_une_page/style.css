@@ -1,0 +1,477 @@
+/* ==========================================================
+   Dédal des Couleurs – feuille de style
+   Palette et typographies de la charte graphique.
+   Page unique, responsive (aucun JavaScript).
+   Pour changer de police, modifier uniquement les 4 variables
+   --font-script / --font-body / --font-label / --font-serif.
+   ========================================================== */
+
+/* ---------- Polices (dossier fonts/) ---------- */
+@font-face { font-family: "Chorus";       src: url("fonts/texgyrechorus-mediumitalic.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Poppins";      src: url("fonts/Poppins-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Poppins";      src: url("fonts/Poppins-Medium.ttf")  format("truetype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Poppins";      src: url("fonts/Poppins-Bold.ttf")    format("truetype"); font-weight: 600 800; font-display: swap; }
+@font-face { font-family: "Big Shoulders"; src: url("fonts/BigShoulders-Regular.ttf") format("truetype"); font-weight: 100 500; font-display: swap; }
+@font-face { font-family: "Big Shoulders"; src: url("fonts/BigShoulders-Bold.ttf")    format("truetype"); font-weight: 600 900; font-display: swap; }
+@font-face { font-family: "Instrument Serif"; src: url("fonts/InstrumentSerif-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+/* ---------- Variables ---------- */
+:root {
+  /* Palette */
+  --cream: #FDF8F2;
+  --blue:  #D4E9F5;
+  --wine:  #7F1734;
+  --pink:  #D06979;
+  --black: #000000;
+
+  /* Typographies : script ≈ Vintage Goods, body ≈ Proxima Nova,
+     label ≈ Sugo Display, serif = Instrument Serif */
+  --font-script: "Chorus", "Palatino Linotype", Georgia, serif;
+  --font-body:   "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label:  "Big Shoulders", "Arial Narrow", Impact, sans-serif;
+  --font-serif:  "Instrument Serif", Georgia, serif;
+
+  /* Marge latérale : 64px, centrée au-delà de 1312px de contenu */
+  --pad: max(64px, calc((100% - 1312px) / 2));
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+[id] { scroll-margin-top: 8px; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+main { display: block; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+address { font-style: normal; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--black);
+}
+::selection { background: var(--pink); color: var(--cream); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip-link {
+  position: absolute; left: 16px; top: -80px; z-index: 100;
+  background: var(--pink); color: var(--black); padding: 12px 20px; font-weight: 600;
+}
+.skip-link:focus { top: 16px; }
+
+/* ---------- Titres et textes ---------- */
+.h-xl, .h-l, .h-m, .h-s {
+  font-family: var(--font-script);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+.h-xl { font-size: clamp(46px, 7vw, 99px); }
+.h-xl--hero { font-size: clamp(46px, 6.3vw, 90px); }
+.h-l  { font-size: clamp(38px, 4.4vw, 63px); }
+.h-m  { font-size: clamp(34px, 3.8vw, 54px); }
+.h-s  { font-size: clamp(30px, 2.6vw, 36px); }
+.accent { color: var(--pink); }          /* mot mis en avant sur fond noir */
+
+.eyebrow.eyebrow {
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 15.6px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 12px;
+}
+.on-dark .eyebrow.eyebrow, .eyebrow--pink { color: var(--pink); }
+.section--wine .eyebrow.eyebrow { color: var(--blue); }
+
+.name {                                   /* noms d'artistes, titres de cartes */
+  font-family: var(--font-label);
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.lead { font-size: 22px; line-height: 1.55; }
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 56px; padding: 0 28px;
+  font: 600 17px/1 var(--font-body);
+  text-decoration: none; cursor: pointer;
+  border: 0;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); }
+.btn--pink    { background: var(--pink);  color: var(--black); box-shadow: 5px 5px 0 var(--wine); }
+.btn--dark    { background: var(--black); color: var(--cream); box-shadow: 5px 5px 0 var(--wine); }
+.btn--pink-on-wine { background: var(--pink); color: var(--black); box-shadow: 5px 5px 0 var(--black); }
+.btn--outline-light { border: 2px solid var(--cream); color: var(--cream); }
+.btn--outline-dark  { border: 2px solid var(--black); color: var(--black); }
+.btn--light { background: var(--cream); color: var(--black); border: 2px solid var(--black); box-shadow: 5px 5px 0 var(--black); }
+.btn svg { flex: none; }
+
+.link-more {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 600; font-size: 17px; color: var(--wine);
+  padding-bottom: 4px; border-bottom: 2px solid var(--wine);
+  text-decoration: none;
+}
+
+/* ---------- En-tête ---------- */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 96px; padding: 0 var(--pad);
+  background: var(--black); color: var(--cream);
+}
+.header-bar { display: flex; align-items: center; }
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand-logo { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; flex: none; }
+.brand-name { display: block; font-family: var(--font-script); font-size: 39px; line-height: 1; }
+.brand-sub {
+  display: block; margin-top: 4px;
+  font-family: var(--font-label); font-weight: 700; font-size: 14.4px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--blue);
+}
+.main-nav ul { display: flex; align-items: center; gap: 36px; font-weight: 500; font-size: 16px; }
+.main-nav a { text-decoration: none; padding-bottom: 6px; }
+.main-nav a[aria-current="page"] { border-bottom: 3px solid var(--pink); }
+.main-nav .nav-cta a {
+  display: inline-block; padding: 13px 24px; background: var(--pink); color: var(--black);
+  font-weight: 600; box-shadow: 4px 4px 0 var(--wine); border-bottom: 0;
+}
+
+/* ---------- Sections génériques ---------- */
+.section { padding: 96px var(--pad); }
+.section--dark  { background: var(--black); color: var(--cream); }
+.section--wine  { background: var(--wine);  color: var(--cream); }
+.section--pink  { background: var(--pink);  color: var(--black); border-top: 2px solid var(--black); }
+.section--cream { background: var(--cream); color: var(--black); }
+.section-head { margin-bottom: 48px; }
+.section-head--narrow { max-width: 720px; }
+.section-head .h-l { margin-bottom: 20px; }
+.section-head p:last-child { font-size: 20px; line-height: 1.6; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; align-items: center; }
+.split p { font-size: 20px; line-height: 1.6; }
+.split .btn-row { margin-top: 28px; }
+.split .h-m { line-height: 1.12; }
+.btn-row { display: flex; gap: 20px; flex-wrap: wrap; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 32px var(--pad) 72px; }
+.hero--page { padding: 48px var(--pad) 72px; }
+.hero--page.hero--long { padding-bottom: 96px; }
+.hero-text .lead { margin: 28px 0 40px; max-width: 520px; font-size: 20px; line-height: 1.6; color: var(--blue); }
+.hero--page .lead { margin: 28px 0 0; max-width: 700px; color: var(--blue); }
+.hero--page .h-xl { max-width: 1100px; }
+.hero--long .lead { margin-top: 32px; }
+.hero .eyebrow.eyebrow { margin-bottom: 24px; }
+
+/* Cadre image avec ombre portée */
+.frame {
+  position: relative; height: 600px; overflow: hidden;
+  border: 2px solid var(--cream); box-shadow: 14px 14px 0 var(--wine);
+}
+.frame--light { border-color: var(--black); height: 640px; }
+.frame img, .carte-img img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.frame-cap {
+  position: absolute; left: 16px; bottom: 16px;
+  background: var(--cream); color: var(--black);
+  font-family: var(--font-serif); font-size: 18px; line-height: 1.2; padding: 6px 10px;
+}
+
+/* ---------- Bandeau défilant ---------- */
+.marquee {
+  overflow: hidden; background: var(--pink); color: var(--black);
+  height: 72px; display: flex; align-items: center;
+  border-top: 2px solid var(--black); border-bottom: 2px solid var(--black);
+}
+.marquee-track {
+  display: flex; align-items: center; width: max-content; white-space: nowrap;
+  font-family: var(--font-label); font-weight: 700; font-size: 34px;
+  letter-spacing: .03em; text-transform: uppercase;
+  animation: defile 32s linear infinite;
+}
+.marquee-group { display: flex; align-items: center; flex: 0 0 auto; }
+.marquee-group i {
+  display: inline-block; width: 10px; height: 10px; background: var(--black);
+  transform: rotate(45deg); margin: 0 28px;
+}
+@keyframes defile { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- Cartes d'œuvres ---------- */
+.section-title-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.cards--catalogue { gap: 48px 32px; }
+.carte { display: block; text-decoration: none; color: var(--black); transition: transform .2s ease; }
+.carte:hover { transform: translate(-4px, -4px); }
+.carte-img { position: relative; height: 460px; border: 2px solid var(--black); overflow: hidden; }
+.badge {
+  position: absolute; left: 12px; top: 12px; z-index: 1;
+  background: var(--pink); color: var(--black);
+  font-family: var(--font-serif); font-size: 18px; line-height: 1.2; padding: 5px 10px;
+}
+.badge--reserve { background: var(--black); color: var(--cream); }
+.carte .name { font-size: 31px; margin: 20px 0 6px; }
+.legende { font-family: var(--font-serif); font-size: 20.8px; line-height: 1.25; }
+.carte .legende { margin-bottom: 4px; }
+.prix { font-size: 16px; margin-bottom: 14px; }
+.carte-link {
+  display: inline-block; font-weight: 600; font-size: 16px; color: var(--wine);
+  border-bottom: 2px solid var(--wine); padding-bottom: 2px;
+}
+
+/* ---------- Prestations / services ---------- */
+.cards--services > li {
+  background: var(--cream); color: var(--black);
+  border: 2px solid var(--black); padding: 32px; box-shadow: 8px 8px 0 var(--black);
+}
+.num { display: block; font-family: var(--font-label); font-weight: 700; font-size: 57px; line-height: 1; color: var(--wine); }
+.cards--services .name { font-size: 34px; margin: 20px 0 12px; }
+.cards--services p { font-size: 17px; line-height: 1.6; margin-bottom: 20px; }
+.cards--services .tags {
+  margin: 0; font-family: var(--font-label); font-weight: 700; font-size: 15.6px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--wine);
+}
+.cards--roles > li { border: 2px solid var(--cream); padding: 32px; }
+.cards--roles .name { font-size: 36px; margin: 20px 0 12px; }
+.cards--roles p { font-size: 18px; line-height: 1.6; }
+
+/* ---------- Page La galerie ---------- */
+.founder-text p { font-size: 19px; line-height: 1.65; margin-bottom: 20px; }
+.founder-text .h-l { margin-bottom: 28px; }
+.founder-text p:last-of-type { margin-bottom: 36px; }
+.visit-box { border: 2px solid var(--black); padding: 24px 28px; background: var(--cream); }
+.visit-box .name { font-size: 26px; margin-bottom: 12px; }
+.visit-box address { display: grid; gap: 6px; font-size: 17px; line-height: 1.5; }
+.visit-box a { color: var(--wine); }
+.artist-list {
+  display: flex; flex-wrap: wrap; gap: 8px 40px;
+  font-family: var(--font-label); font-weight: 700; font-size: 94px;
+  line-height: 1.1; letter-spacing: .03em; text-transform: uppercase;
+}
+.artist-list a { text-decoration: none; transition: color .15s ease; }
+.artist-list a:hover { color: var(--pink); }
+.section--dark .h-l { margin-bottom: 48px; }
+
+/* ---------- Page Les œuvres ---------- */
+.filters-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 24px var(--pad); border-bottom: 2px solid var(--black); background: var(--cream);
+}
+.filters { display: flex; flex-wrap: wrap; gap: 12px; }
+.filters label {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; cursor: pointer;
+  font: 500 16px var(--font-body); white-space: nowrap;
+  background: transparent; color: var(--black); border: 2px solid var(--black);
+}
+.filters label:hover { background: var(--blue); }
+.f-radio:checked ~ .filters-bar label[for="f-tous"] { }
+#f-tous:checked ~ .filters-bar label[for="f-tous"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-tous:focus-visible ~ .filters-bar label[for="f-tous"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-soutine:checked ~ .filters-bar label[for="f-soutine"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-soutine:focus-visible ~ .filters-bar label[for="f-soutine"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-modigliani:checked ~ .filters-bar label[for="f-modigliani"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-modigliani:focus-visible ~ .filters-bar label[for="f-modigliani"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-kikoine:checked ~ .filters-bar label[for="f-kikoine"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-kikoine:focus-visible ~ .filters-bar label[for="f-kikoine"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-pascin:checked ~ .filters-bar label[for="f-pascin"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-pascin:focus-visible ~ .filters-bar label[for="f-pascin"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-chagall:checked ~ .filters-bar label[for="f-chagall"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-chagall:focus-visible ~ .filters-bar label[for="f-chagall"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-picasso:checked ~ .filters-bar label[for="f-picasso"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-picasso:focus-visible ~ .filters-bar label[for="f-picasso"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+.collection:has(#f-soutine:checked) .cards--catalogue li:not(.a-soutine) { display: none; }
+.collection:has(#f-modigliani:checked) .cards--catalogue li:not(.a-modigliani) { display: none; }
+.collection:has(#f-kikoine:checked) .cards--catalogue li:not(.a-kikoine) { display: none; }
+.collection:has(#f-pascin:checked) .cards--catalogue li:not(.a-pascin) { display: none; }
+.collection:has(#f-chagall:checked) .cards--catalogue li:not(.a-chagall) { display: none; }
+.collection:has(#f-picasso:checked) .cards--catalogue li:not(.a-picasso) { display: none; }
+.count .c1 { display: none; }
+.collection:has(.f-radio:not(#f-tous):checked) .count .c6 { display: none; }
+.collection:has(.f-radio:not(#f-tous):checked) .count .c1 { display: inline; }
+.count { font-size: 16px; white-space: nowrap; }
+.catalogue { padding: 64px var(--pad) 96px; }
+
+/* ---------- Page Inscription ---------- */
+.hero--signup { padding: 56px var(--pad) 104px; }
+.checklist { display: grid; gap: 16px; font-size: 18px; }
+.checklist li { display: flex; align-items: center; gap: 14px; }
+.checklist svg { flex: none; }
+.hero--signup .lead { margin: 28px 0 36px; max-width: 520px; color: var(--blue); }
+.signup-card {
+  background: var(--cream); color: var(--black); border: 2px solid var(--black);
+  box-shadow: 14px 14px 0 var(--pink); padding: 44px;
+}
+.signup-card .h-s { margin-bottom: 28px; }
+.signup-form { display: grid; gap: 24px; }
+.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.field label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 16px; }
+.field input {
+  width: 100%; height: 56px; padding: 0 16px;
+  font: 400 18px var(--font-body); color: var(--black);
+  background: var(--cream); border: 2px solid var(--black); border-radius: 0;
+}
+.field input:user-invalid { border: 3px solid var(--wine); }
+.field input::placeholder { color: rgba(0,0,0,.45); }
+.signup-form .submit {
+  min-height: 60px; padding: 0 28px; cursor: pointer;
+  font: 600 18px var(--font-body); background: var(--wine); color: var(--cream);
+  border: 2px solid var(--black); box-shadow: 5px 5px 0 var(--black);
+  transition: transform .15s ease;
+}
+.signup-form .submit:hover { transform: translate(-2px, -2px); }
+.form-note { font-size: 15px; line-height: 1.5; }
+.form-success {
+  background: var(--blue); border: 2px solid var(--black); padding: 20px 24px;
+  font-weight: 500; line-height: 1.5;
+}
+.form-success { display: none; }
+.form-success:target { display: block; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.steps li { border-top: 2px solid var(--black); padding-top: 24px; }
+.steps .name { font-size: 31px; margin: 16px 0 10px; }
+.steps p { font-size: 18px; line-height: 1.6; }
+.section--cream .h-m { margin-bottom: 48px; }
+
+/* ---------- Pied de page ---------- */
+.site-footer { margin-top: auto; background: var(--black); color: var(--cream); padding: 72px var(--pad) 40px; }
+.footer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px; }
+.footer-grid .brand { display: flex; }
+.footer-grid p, .footer-grid address, .footer-grid li { font-size: 16px; line-height: 1.6; color: var(--blue); }
+.footer-grid .brand + p { margin-top: 20px; }
+.footer-grid h2 {
+  font-family: var(--font-label); font-weight: 700; font-size: 23.4px;
+  letter-spacing: .03em; text-transform: uppercase; margin-bottom: 16px;
+}
+.footer-grid ul, .footer-grid address { display: grid; gap: 10px; }
+.footer-grid a { text-decoration: none; }
+.footer-grid a:hover { text-decoration: underline; }
+.footer-grid .footer-cta { display: inline-block; margin-top: 16px; font-weight: 600; color: var(--pink); }
+.footer-grid p + .footer-cta { margin-top: 0; }
+.footer-bottom {
+  display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 24px;
+  border-top: 1px solid var(--wine); font-size: 14px; color: var(--blue);
+}
+.footer-bottom a { text-decoration: none; }
+
+/* ==========================================================
+   Responsive (mise en page fluide, sans version téléphone séparée)
+   ========================================================== */
+@media (max-width: 1100px) {
+  :root { --pad: 40px; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards--services > li:last-child, .cards--roles > li:last-child { grid-column: 1 / -1; }
+  .steps { grid-template-columns: 1fr; }
+  .carte-img { height: 400px; }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .artist-list { font-size: clamp(52px, 8vw, 94px); }
+}
+
+@media (max-width: 900px) {
+  :root { --pad: 28px; }
+  .site-header { flex-direction: column; align-items: flex-start; height: auto; gap: 14px; padding: 16px var(--pad) 18px; }
+  .main-nav ul { flex-wrap: wrap; gap: 6px 22px; }
+  .split { grid-template-columns: 1fr; gap: 40px; }
+  .frame, .frame--light { height: min(520px, 90vw); }
+  .hero .frame { margin-right: 14px; }
+  .filters-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .signup-card { margin-right: 14px; }
+}
+
+@media (max-width: 640px) {
+  :root { --pad: 20px; }
+  body { font-size: 16px; }
+  .section { padding: 56px var(--pad); }
+  .hero, .hero--page, .hero--signup { padding: 24px var(--pad) 48px; }
+  .hero--page.hero--long { padding-bottom: 48px; }
+  .site-header { padding: 14px var(--pad) 16px; }
+  .brand-logo { width: 38px; height: 38px; }
+  .brand-name { font-size: 33px; }
+  .brand-sub { font-size: 13.2px; margin-top: 3px; }
+  .main-nav ul { font-size: 15px; gap: 6px 18px; }
+  .main-nav .nav-cta a { padding: 10px 18px; }
+  .lead, .hero--page .lead, .hero-text .lead, .hero--signup .lead { font-size: 17px; }
+  .section-head p:last-child, .split p { font-size: 17px; }
+  .hero-text .lead { margin: 20px 0 28px; }
+  .hero--long .lead { margin-top: 24px; }
+  .btn-row { display: grid; gap: 16px; }
+  .btn { width: 100%; }
+  .btn--pink, .btn--dark { box-shadow: 4px 4px 0 var(--wine); }
+  .split { gap: 28px; }
+  .section-head { margin-bottom: 32px; }
+  .frame, .frame--light { height: 300px; box-shadow: 8px 8px 0 var(--wine); }
+  .frame--light { height: 400px; }
+  .hero .frame { margin: 16px 8px 0 0; }
+  .frame-cap { left: 10px; bottom: 10px; font-size: 16.8px; padding: 5px 8px; }
+  .marquee { height: 56px; }
+  .marquee-track { font-size: 26px; }
+
+  .cards { grid-template-columns: 1fr; gap: 20px; }
+  .cards--services > li, .cards--roles > li { padding: 24px; }
+  .cards--services > li { box-shadow: 6px 6px 0 var(--black); margin-right: 6px; }
+  .cards--services .name { font-size: 31px; }
+  .cards--roles .name { font-size: 34px; }
+  .cards--services p, .cards--roles p { font-size: 16px; }
+  .num { font-size: 52px; }
+
+  .founder-text p { font-size: 17px; }
+  .visit-box { padding: 20px; }
+  .artist-list { font-size: 52px; gap: 4px 24px; }
+
+  .filters-bar { padding: 20px var(--pad) 12px; display: block; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin: 0 -20px; padding: 0 20px 8px; }
+  .count { margin-top: 8px; font-size: 15px; }
+  .catalogue { padding: 32px var(--pad) 56px; }
+  .cards--catalogue { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+  .cards--catalogue .carte-img { height: 210px; }
+  .cards--catalogue .name { font-size: 25px; margin: 12px 0 4px; }
+  .cards--catalogue .legende { font-size: 16px; }
+  .cards--catalogue .prix { font-size: 14px; margin-bottom: 10px; }
+  .cards--catalogue .carte-link { font-size: 14px; }
+  .cards--catalogue .badge { left: 8px; top: 8px; font-size: 15px; padding: 3px 8px; }
+
+  .hero--signup { padding-bottom: 48px; }
+  .signup-card { padding: 26px 24px; box-shadow: 8px 8px 0 var(--pink); margin-right: 8px; }
+  .signup-card .h-s { font-family: var(--font-label); font-weight: 700; text-transform: uppercase; font-size: 36px; letter-spacing: .01em; line-height: 1.1; margin-bottom: 24px; }
+  .field-row { grid-template-columns: 1fr; gap: 20px; }
+  .signup-form { gap: 20px; }
+  .signup-form .submit { padding: 0 20px; box-shadow: 4px 4px 0 var(--black); }
+  .checklist { font-size: 16px; gap: 14px; line-height: 1.45; margin-bottom: 36px; }
+  .steps { gap: 24px; }
+  .steps li { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; align-items: start; }
+  .steps .num { grid-row: 1 / span 2; font-size: 44px; }
+  .steps .name { font-size: 25px; margin: 4px 0 8px; }
+  .steps p { font-size: 16px; }
+  .section--cream .h-m { margin-bottom: 32px; }
+
+  .site-footer { padding: 48px var(--pad) 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid h2 { font-size: 22px; margin-bottom: 12px; }
+  .footer-grid ul { gap: 4px; }
+  .footer-grid li a { display: inline-block; padding: 6px 0; }
+  .footer-bottom { flex-direction: column; margin-top: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  .carte, .btn, .signup-form .submit { transition: none; }
+}
