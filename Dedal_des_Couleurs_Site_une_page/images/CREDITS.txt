@@ -1,0 +1,13 @@
+CRÉDITS ET DROITS DES IMAGES
+============================
+soutine.jpg, modigliani.jpg, pascin.jpg, monet-nympheas.jpg, monet-neige.jpg, munch-cri.jpg
+  Œuvres d'artistes morts depuis plus de 70 ans, donc dans le domaine public en Europe
+  (Modigliani † 1920, Pascin † 1930, Soutine † 1943, Monet † 1926, Munch † 1944).
+  Une reproduction fidèle d'une œuvre plane du domaine public ne crée pas de nouveau droit d'auteur.
+  Les photos Monet / Munch ont été prises par vous en musée puis recadrées : vérifier le règlement
+  du musée si vous les utilisez à titre commercial. Idéal : vos propres photos des œuvres vendues.
+
+logo-cd.jpg : votre logo.
+placeholder-portrait.svg : à remplacer par une photo de Paul Dechewsky dont vous détenez les droits.
+
+Artistes retirés (œuvres encore protégées) : Kikoine, Chagall, Picasso.
