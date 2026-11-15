@@ -287,23 +287,22 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 #f-soutine:focus-visible ~ .filters-bar label[for="f-soutine"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
 #f-modigliani:checked ~ .filters-bar label[for="f-modigliani"] { background: var(--black); color: var(--cream); font-weight: 600; }
 #f-modigliani:focus-visible ~ .filters-bar label[for="f-modigliani"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
-#f-kikoine:checked ~ .filters-bar label[for="f-kikoine"] { background: var(--black); color: var(--cream); font-weight: 600; }
-#f-kikoine:focus-visible ~ .filters-bar label[for="f-kikoine"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-monet:checked ~ .filters-bar label[for="f-monet"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-monet:focus-visible ~ .filters-bar label[for="f-monet"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
 #f-pascin:checked ~ .filters-bar label[for="f-pascin"] { background: var(--black); color: var(--cream); font-weight: 600; }
 #f-pascin:focus-visible ~ .filters-bar label[for="f-pascin"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
-#f-chagall:checked ~ .filters-bar label[for="f-chagall"] { background: var(--black); color: var(--cream); font-weight: 600; }
-#f-chagall:focus-visible ~ .filters-bar label[for="f-chagall"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
-#f-picasso:checked ~ .filters-bar label[for="f-picasso"] { background: var(--black); color: var(--cream); font-weight: 600; }
-#f-picasso:focus-visible ~ .filters-bar label[for="f-picasso"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
+#f-munch:checked ~ .filters-bar label[for="f-munch"] { background: var(--black); color: var(--cream); font-weight: 600; }
+#f-munch:focus-visible ~ .filters-bar label[for="f-munch"] { outline: 3px solid var(--pink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--black); }
 .collection:has(#f-soutine:checked) .cards--catalogue li:not(.a-soutine) { display: none; }
 .collection:has(#f-modigliani:checked) .cards--catalogue li:not(.a-modigliani) { display: none; }
-.collection:has(#f-kikoine:checked) .cards--catalogue li:not(.a-kikoine) { display: none; }
+.collection:has(#f-monet:checked) .cards--catalogue li:not(.a-monet) { display: none; }
 .collection:has(#f-pascin:checked) .cards--catalogue li:not(.a-pascin) { display: none; }
-.collection:has(#f-chagall:checked) .cards--catalogue li:not(.a-chagall) { display: none; }
-.collection:has(#f-picasso:checked) .cards--catalogue li:not(.a-picasso) { display: none; }
-.count .c1 { display: none; }
+.collection:has(#f-munch:checked) .cards--catalogue li:not(.a-munch) { display: none; }
+.count .c1, .count .c2 { display: none; }
 .collection:has(.f-radio:not(#f-tous):checked) .count .c6 { display: none; }
 .collection:has(.f-radio:not(#f-tous):checked) .count .c1 { display: inline; }
+.collection:has(#f-monet:checked) .count .c1 { display: none !important; }
+.collection:has(#f-monet:checked) .count .c2 { display: inline; }
 .count { font-size: 16px; white-space: nowrap; }
 .catalogue { padding: 64px var(--pad) 96px; }
 
