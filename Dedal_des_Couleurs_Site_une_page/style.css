@@ -72,7 +72,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 /* ---------- Titres et textes ---------- */
 .h-xl, .h-l, .h-m, .h-s {
-  font-family: var(--font-script);
+  font-family: var(--font-body);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.12;
